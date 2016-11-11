@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">QuickDemo</string>
+    <string name="instruction">Search for an org and see the members.</string>
+    <string name="search">Find!</string>
+    <string name="bad_news">Regrets, there\'s no organization for your search term:</string>
+    <string name="no_network">Sorry.  You don\t have a network connection.</string>
+</resources>
