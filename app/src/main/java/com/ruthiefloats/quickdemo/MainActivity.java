@@ -19,6 +19,8 @@ import com.ruthiefloats.quickdemo.network.GitHubServiceGenerator;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 
@@ -27,11 +29,14 @@ public class MainActivity extends AppCompatActivity {
     // for basic authentication, put your credentials in gradle.properties
     String username = BuildConfig.GIT_HUB_USER_NAME;
     String password = BuildConfig.GIT_HUB_PASSWORD;
+    //    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerViewMembers);
+    @BindView(R.id.recyclerViewMembers) RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
     }
 
     /*use user input to build a Call and use Response to
@@ -50,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
                     if (response.isSuccessful()) {
                         List<Member> memberList = response.body();
                         if (memberList != null) {
-                            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerViewMembers);
                             MemberAdapter adapter = new MemberAdapter(getApplicationContext(), memberList);
                             recyclerView.setAdapter(adapter);
                             recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));

@@ -13,7 +13,12 @@ import com.ruthiefloats.quickdemo.R;
 import com.ruthiefloats.quickdemo.models.Member;
 import com.squareup.picasso.Picasso;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * An Adapter to take a List of Member objects and fill a RecyclerView
@@ -107,14 +112,14 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView userNameTextView;
-        public ImageView userAvatarImageView;
+        @BindView(R.id.user_name)
+        TextView userNameTextView;
+        @BindView(R.id.user_avatar)
+        ImageView userAvatarImageView;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            userNameTextView = (TextView) itemView.findViewById(R.id.user_name);
-            userAvatarImageView = (ImageView) itemView.findViewById(R.id.user_avatar);
-        }
+            ButterKnife.bind(this, itemView);        }
     }
 }
